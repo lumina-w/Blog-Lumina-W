@@ -1,0 +1,86 @@
+---
+import Link from '@/components/ui/Link.astro';
+
+const BASE = import.meta.env.BASE_URL;
+const LOGO = `${BASE}brand/logo.webp`;
+const developer = {
+  logo: `${BASE}brand/logo-w-sm.png`,
+  portfolio: 'https://wavival.github.io/',
+};
+const year = new Date().getFullYear();
+---
+
+<footer aria-label="Pie de página" class="mt-24 border-t border-light bg-card">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-10">
+
+    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 mb-8">
+
+      <div class="flex flex-col gap-4 sm:w-1/2">
+        <img src={LOGO} alt="Logo de Lúmina W" class="w-20" />
+        <p class="font-body text-sm">
+          Creamos software. Los negocios lo rentan.
+        </p>
+        <div class="flex items-center gap-1">
+          <p class="font-body text-xs">Desarrollado por:</p>
+          <Link
+            href={developer.portfolio}
+            target="_blank"
+            class="!text-blue !text-xs !lowercase italic"
+          >
+            @wavival</Link
+          >
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-4">
+        <p
+          class="font-headin text-sm font-semibold tracking-widest uppercase"
+        >
+          Síguenos
+        </p>
+        <div class="flex items-center gap-4">
+          <Link
+            href="https://instagram.com/luminaw.co"
+            target="_blank"
+            class="!text-sm"
+          >
+            <img
+              src={`${BASE}icons/ui/instagram.svg`}
+              alt="Instagram"
+              class="h-6 w-6"
+            />
+          </Link>
+          <Link
+            href="https://linkedin.com/company/lumina-w"
+            target="_blank"
+            class="!text-sm"
+          >
+            <img
+              src={`${BASE}icons/ui/linkedin.svg`}
+              alt="LinkedIn"
+              class="h-6 w-6"
+            />
+          </Link>
+          <Link
+            href="https://wa.me/573108283088"
+            target="_blank"
+            class="!text-sm"
+          >
+            <img
+              src={`${BASE}icons/ui/whatsapp.svg`}
+              alt="WhatsApp"
+              class="h-6 w-6"
+            />
+          </Link>
+        </div>
+      </div>
+    </div>
+
+    <div class="pt-6 border-t border-light">
+      <p class="text-xs text-text-muted text-center">
+        © {year} Lúmina W · Todos los derechos reservados.
+      </p>
+    </div>
+
+  </div>
+</footer>

@@ -1,0 +1,88 @@
+---
+import '@/styles/global.css';
+import Loader from '@/components/ui/Loader.astro';
+import Navbar from '@/components/ui/Navbar.astro';
+import Footer from '@/components/ui/Footer.astro';
+
+interface Props {
+  title:        string;
+  description?: string;
+  ogImage?:     string;
+  ogType?:      'website' | 'article';
+}
+
+const {
+  title,
+  description = 'Ideas sobre desarrollo de software, SaaS y tecnología. Por el equipo de Lúmina W.',
+  ogImage,
+  ogType = 'website',
+} = Astro.props;
+
+const siteUrl     = 'https://blog.luminaw.co';
+const fullTitle   = title === 'Blog' ? 'Blog · Lúmina W' : `${title} · Lúmina W Blog`;
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
+const ogImageUrl   = ogImage
+  ? (ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`)
+  : undefined;
+---
+
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content="Valentina Ramírez" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#407bff" />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content={ogType} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="Blog · Lúmina W" />
+    <meta property="og:locale" content="es_CO" />
+    {ogImageUrl && (
+      <>
+        <meta property="og:image" content={ogImageUrl} />
+        <meta property="og:image:alt" content={fullTitle} />
+      </>
+    )}
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    {ogImageUrl && <meta name="twitter:image" content={ogImageUrl} />}
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Raleway:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="/brand/logo.ico" type="image/x-icon" />
+  </head>
+  <body>
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[200] focus:px-4 focus:py-2 focus:bg-brand focus:text-white focus:rounded-md"
+    >
+      Saltar al contenido principal
+    </a>
+    <Loader />
+    <Navbar />
+    <slot />
+    <div
+      id="cursor-glow"
+      aria-hidden="true"
+      class="pointer-events-none fixed z-50 h-64 w-64 rounded-full opacity-0"
+      style="background: radial-gradient(circle, rgba(64,123,255,0.12) 0%, transparent 70%); transform: translate(-50%, -50%); transition: opacity 0.3s ease, left 0.08s ease, top 0.08s ease;"
+    ></div>
+    <Footer />
+    <script>
+      import '@/scripts/cursor.ts';
+    </script>
+  </body>
+</html>

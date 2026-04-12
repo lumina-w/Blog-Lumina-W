@@ -1,0 +1,56 @@
+---
+import Link from '@/components/ui/Link.astro';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+}
+
+const { post } = Astro.props;
+const { title, date, description, category, cover, readTime } = post.data;
+
+const formattedDate = date.toLocaleDateString('es-ES', {
+  year: 'numeric', month: 'long', day: 'numeric',
+});
+---
+
+<a
+  href={`/blog/${post.slug}`}
+  aria-label={title}
+  class="group flex flex-col bg-card rounded-2xl overflow-hidden border border-light
+       hover:shadow-lg hover:shadow-brand/10 hover:scale-[1.01] transform-gpu
+         transition-all duration-200"
+>
+  {cover && (
+    <div class="overflow-hidden h-48 shrink-0">
+      <img
+        src={cover}
+        alt={title}
+        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+        loading="lazy"
+      />
+    </div>
+  )}
+
+  <div class="flex flex-col flex-1 p-5">
+    <div class="flex items-center gap-2 mb-3">
+      <span class="text-xs font-semibold uppercase tracking-widest text-brand bg-light px-2.5 py-0.5 rounded-full">
+        {category}
+      </span>
+      <span class="text-xs text-text-muted">· {readTime}</span>
+    </div>
+
+    <h2 class="font-heading text-lg font-semibold text-text-primary leading-snug mb-2
+               group-hover:text-brand transition-colors duration-150">
+      {title}
+    </h2>
+
+    <p class="text-sm text-text-muted line-clamp-2 flex-1 mb-4">{description}</p>
+
+    <div class="flex items-center justify-between gap-4">
+      <time datetime={date.toISOString()} class="text-xs text-text-muted">
+        {formattedDate}
+      </time>
+    </div>
+  </div>
+</a>

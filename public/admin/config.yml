@@ -1,0 +1,57 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: public/images/blog
+public_folder: /images/blog
+
+locale: es
+
+collections:
+  - name: blog
+    label: Artículos del Blog
+    label_singular: Artículo
+    folder: src/content/blog
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - label: Título
+        name: title
+        widget: string
+
+      - label: Fecha de publicación
+        name: date
+        widget: datetime
+        date_format: "YYYY-MM-DD"
+        time_format: false
+        default: ""
+
+      - label: Descripción
+        name: description
+        widget: string
+        hint: "Para SEO y las tarjetas del blog (máx. 160 caracteres recomendado)"
+
+      - label: Categoría
+        name: category
+        widget: select
+        options:
+          - { label: "Desarrollo de software", value: "Desarrollo de software" }
+          - { label: "SaaS y producto",        value: "SaaS y producto" }
+          - { label: "Seguridad",              value: "Seguridad" }
+          - { label: "Casos de estudio",       value: "Casos de estudio" }
+
+      - label: Imagen de portada
+        name: cover
+        widget: image
+        required: false
+        hint: "Formato recomendado: 1200×630 px (JPG o WebP)"
+
+      - label: Tiempo de lectura
+        name: readTime
+        widget: string
+        hint: "Ej: 5 min"
+        default: "5 min"
+
+      - label: Contenido
+        name: body
+        widget: markdown

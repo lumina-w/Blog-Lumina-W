@@ -1,0 +1,39 @@
+---
+import Link from '@/components/ui/Link.astro';
+import Button from '@/components/ui/Button.astro';
+---
+
+<header class="sticky top-0 z-50 bg-card/90 backdrop-blur-sm border-b border-light">
+  <nav aria-label="Navegación principal" class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+
+    <div class="flex items-center gap-1 min-w-0">
+      <a
+        href="https://luminaw.co"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Ir a luminaw.co"
+        class="shrink-0"
+      >
+        <img src="/brand/logo.webp" alt="Lúmina W" class="h-8 w-auto" />
+      </a>
+      <span class="text-light/40 select-none hidden sm:inline">/</span>
+      <Link
+        href="/"
+        class="text-sm"
+      >
+        Blog
+      </Link>
+    </div>
+
+    <Button
+      href="https://luminaw.co/#contact"
+      target="_blank"
+      rel="noopener noreferrer"
+      icon="send-email-white"
+      type='button'
+    >
+      Trabajemos juntos
+    </Button>
+
+  </nav>
+</header>

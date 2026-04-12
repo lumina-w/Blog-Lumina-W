@@ -1,0 +1,42 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '@/layouts/Layout.astro';
+import PostCard from '@/components/ui/PostCard.astro';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+);
+---
+
+<Layout title="Blog">
+  <main id="main-content">
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 pt-16 pb-12">
+    <p class="text-sm font-semibold uppercase tracking-widest text-brand mb-3">Lúmina W</p>
+    <h1 class="font-heading text-5xl sm:text-6xl font-bold text-text-primary mb-4">Blog</h1>
+    <p class="text-lg text-text-muted max-w-4xl leading-relaxed">
+      Ideas sobre desarrollo de software, SaaS, seguridad y producto. Por el equipo de
+      <a
+        href="https://luminaw.co"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="link text-sm!"
+      >Lúmina W</a>. <br>
+      Escribimos sobre lo que construimos, lo que rompemos y lo que descubrimos. Sin filtro corporativo.
+    </p>
+  </section>
+
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 pb-24">
+    {posts.length === 0 ? (
+      <div class="text-center py-24">
+        <p class="text-text-muted text-lg">Pronto habrá artículos aquí.</p>
+        <p class="text-text-muted text-sm mt-2">Vuelve en unos días.</p>
+      </div>
+    ) : (
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {posts.map(post => <PostCard post={post} />)}
+      </div>
+    )}
+  </section>
+  </main>
+
+</Layout>

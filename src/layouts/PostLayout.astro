@@ -1,0 +1,99 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import Layout from '@/layouts/Layout.astro';
+import Link from '@/components/ui/Link.astro';
+
+interface Props {
+  post: CollectionEntry<'blog'>;
+}
+
+const { post } = Astro.props;
+const { title, date, description, category, cover, readTime } = post.data;
+
+const formattedDate = date.toLocaleDateString('es-ES', {
+  year: 'numeric', month: 'long', day: 'numeric',
+});
+---
+
+<Layout title={title} description={description} ogImage={cover} ogType="article">
+
+  <main id="main-content" class="max-w-3xl mx-auto px-4 sm:px-6 py-12">
+
+    <header>
+      <div class="flex flex-wrap items-center gap-3 mb-5">
+        <span class="text-xs font-semibold uppercase tracking-widest text-brand bg-light px-3 py-1 rounded-full">
+          {category}
+        </span>
+        <time datetime={date.toISOString()} class="text-sm text-text-muted">{formattedDate}</time>
+        <span class="text-sm text-text-muted" aria-label={`Tiempo de lectura: ${readTime}`}>· {readTime} de lectura</span>
+      </div>
+
+      <h1 class="font-heading text-3xl sm:text-4xl font-bold text-text-primary leading-tight mb-6">
+        {title}
+      </h1>
+
+      {cover && (
+        <img
+          src={cover}
+          alt={`Imagen de portada: ${title}`}
+          class="w-full rounded-2xl mb-10 object-cover max-h-96"
+          loading="eager"
+          width="768"
+          height="384"
+        />
+      )}
+    </header>
+
+    <article
+      class="prose prose-lg max-w-none
+             prose-headings:font-heading prose-headings:text-text-primary
+             prose-p:text-text-primary prose-p:leading-relaxed
+             prose-li:text-text-primary
+             prose-strong:text-text-primary
+             prose-code:text-brand prose-code:bg-light prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-code:before:content-none prose-code:after:content-none
+             prose-pre:bg-dark/20 prose-pre:text-light
+             prose-blockquote:border-brand prose-blockquote:text-text-muted"
+      aria-label={title}
+    >
+      <slot />
+    </article>
+
+    <aside class="mt-16 p-6 bg-card rounded-2xl border border-light flex items-center gap-5" aria-label="Sobre la autora">
+      <img
+        src="/images/profile.webp"
+        alt="Valentina Ramírez"
+        width="64"
+        height="64"
+        class="w-16 h-16 rounded-full object-cover shrink-0 bg-light"
+      />
+      <div>
+        <p class="font-heading font-semibold text-text-primary">Valentina Ramírez</p>
+        <p class="text-sm text-text-muted mb-2">Fundadora de Lúmina W · Backend Developer</p>
+        <Link
+          href="https://wavival.github.io"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-xs"
+        >
+          Ver sitio web
+        </Link>
+      </div>
+    </aside>
+
+    <section class="mt-10 text-center p-8 sm:p-10 bg-dark/90 rounded-2xl" aria-label="Contacto">
+      <p class="font-heading text-xl font-bold text-white mb-3">¿Tienes un proyecto en mente?</p>
+      <p class="text-light/80 text-sm mb-6 max-w-sm mx-auto">
+        Construimos software a medida, SaaS y soluciones digitales para empresas que quieren crecer.
+      </p>
+      <Link
+        href="https://luminaw.co/#contact"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Trabajemos juntos
+      </Link>
+    </section>
+
+  </main>
+
+</Layout>
