@@ -26,19 +26,22 @@ body {
 }
 
 .prose a {
-  color: var(--color-brand);
-  text-decoration-color: transparent;
-  transition: text-decoration-color 150ms;
+  display: inline-block;
+  color: var(--accent-link);
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  transition: all 0.3s ease;
 }
 .prose a:hover {
-  text-decoration-color: var(--color-brand);
+  color: var(--accent-hover);
+  transform: translateX(4px);
 }
 .prose h1,
 .prose h2,
 .prose h3,
 .prose h4 {
   font-family: var(--font-heading);
-  color: var(--color-text-primary);
 }
 
 @import 'tailwindcss';
@@ -50,6 +53,12 @@ body {
   --nav-blur: rgba(240, 244, 255, 0.85);
   --bg-blur: rgba(64, 123, 255, 0.06);
   --space-section: 96px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-brand);
+  outline-offset: 3px;
+  border-radius: 4px;
 }
 
 @layer components {
@@ -73,6 +82,22 @@ body {
   .link:hover {
     transform: translateX(4px);
   }
+  pre::-webkit-scrollbar {
+  height: 4px;
+}
+
+pre::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+pre::-webkit-scrollbar-thumb {
+  background: #407bff;
+  border-radius: 999px;
+}
+pre {
+  scrollbar-width: thin;
+  scrollbar-color: #407bff transparent;
+}
 }
 
 html {

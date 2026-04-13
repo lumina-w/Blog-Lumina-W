@@ -2,20 +2,54 @@
 import type { CollectionEntry } from 'astro:content';
 import Layout from '@/layouts/Layout.astro';
 import Link from '@/components/ui/Link.astro';
+import Button from '@/components/ui/Button.astro';
+import ScrollToTop from "@/components/ui/ScrollToTop";
 
 interface Props {
-  post: CollectionEntry<'blog'>;
+  post: CollectionEntry<'post'>;
 }
 
 const { post } = Astro.props;
 const { title, date, description, category, cover, readTime } = post.data;
 
+const siteUrl = 'https://blog.luminaw.co';
+const canonicalUrl = new URL(`/${post.slug}`, siteUrl).toString();
+
 const formattedDate = date.toLocaleDateString('es-ES', {
   year: 'numeric', month: 'long', day: 'numeric',
 });
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: title,
+  description,
+  datePublished: date.toISOString(),
+  author: {
+    '@type': 'Person',
+    name: 'Valentina Ramírez',
+    url: 'https://wavival.github.io',
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'Lúmina W',
+    logo: { '@type': 'ImageObject', url: `${siteUrl}/brand/logo.webp` },
+  },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
+  ...(cover && { image: cover.startsWith('http') ? cover : `${siteUrl}${cover}` }),
+};
 ---
 
-<Layout title={title} description={description} ogImage={cover} ogType="article">
+<Layout
+  title={title}
+  description={description}
+  ogImage={cover}
+  ogType="article"
+  keywords={[category, 'ciberseguridad', 'pentesting', 'Lúmina W Blog']}
+  articleDate={date}
+  articleAuthor="Valentina Ramírez"
+>
+  <script is:inline slot="head" type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
 
   <main id="main-content" class="max-w-3xl mx-auto px-4 sm:px-6 py-12">
 
@@ -49,10 +83,16 @@ const formattedDate = date.toLocaleDateString('es-ES', {
              prose-headings:font-heading prose-headings:text-text-primary
              prose-p:text-text-primary prose-p:leading-relaxed
              prose-li:text-text-primary
-             prose-strong:text-text-primary
-             prose-code:text-brand prose-code:bg-light prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-code:before:content-none prose-code:after:content-none
-             prose-pre:bg-dark/20 prose-pre:text-light
-             prose-blockquote:border-brand prose-blockquote:text-text-muted"
+             prose-strong:text-text-primary prose-strong:font-semibold
+             prose-code:text-brand prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-sm prose-code:font-mono prose-code:before:content-none prose-code:after:content-none
+             prose-pre:bg-dark prose-pre:text-light prose-pre:rounded-xl prose-pre:border prose-pre:border-brand/20
+             prose-blockquote:border-brand prose-blockquote:text-text-muted prose-blockquote:not-italic prose-blockquote:bg-brand/5 prose-blockquote:rounded-r-lg
+             prose-hr:border-light
+             prose-img:rounded-xl prose-img:shadow-md prose-img:w-full
+             prose-thead:bg-brand/5
+             prose-th:text-brand prose-th:font-semibold
+             prose-td:text-text-primary
+             prose-tr:border-light"
       aria-label={title}
     >
       <slot />
@@ -80,20 +120,30 @@ const formattedDate = date.toLocaleDateString('es-ES', {
       </div>
     </aside>
 
-    <section class="mt-10 text-center p-8 sm:p-10 bg-dark/90 rounded-2xl" aria-label="Contacto">
+    <section class="mt-10 text-center p-8 sm:p-10 bg-dark rounded-2xl" aria-label="Contacto">
       <p class="font-heading text-xl font-bold text-white mb-3">¿Tienes un proyecto en mente?</p>
       <p class="text-light/80 text-sm mb-6 max-w-sm mx-auto">
         Construimos software a medida, SaaS y soluciones digitales para empresas que quieren crecer.
       </p>
-      <Link
-        href="https://luminaw.co/#contact"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Trabajemos juntos
-      </Link>
+       <Button
+      href="https://luminaw.co/#contact"
+      target="_blank"
+      rel="noopener noreferrer"
+      icon="send-email-white"
+      type='button'
+    >
+      Trabajemos juntos
+    </Button>
     </section>
+    <div class="flex items-center justify-center mt-12">
+      <Link
+          href="/"
+        >
+          Volver al inicio
+        </Link>
+    </div>
 
   </main>
+  <ScrollToTop client:load />
 
 </Layout>

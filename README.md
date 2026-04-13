@@ -36,9 +36,9 @@ npm run dev
 ```
 src/
 ├── components/ui/   # Button, Footer, Link, Loader, Navbar, PostCard
-├── content/blog/    # Artículos en Markdown
+├── content/post/    # Artículos en Markdown
 ├── layouts/         # Layout.astro, PostLayout.astro
-├── pages/           # index.astro, blog/[slug].astro
+├── pages/           # index.astro, [slug].astro
 ├── scripts/         # cursor.ts, loader.ts
 └── styles/          # global.css
 
@@ -55,7 +55,7 @@ El blog usa [Decap CMS](https://decapcms.org) con autenticación por Netlify Ide
 
 Accede al panel en `/admin` una vez desplegado en Netlify.
 
-Los artículos se crean en `src/content/blog/` como archivos Markdown con el siguiente frontmatter:
+Los artículos se crean en `src/content/post/` como archivos Markdown con el siguiente frontmatter:
 
 ```yaml
 ---

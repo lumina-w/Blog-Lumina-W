@@ -3,9 +3,12 @@ import { getCollection } from 'astro:content';
 import Layout from '@/layouts/Layout.astro';
 import PostCard from '@/components/ui/PostCard.astro';
 
-const posts = (await getCollection('blog')).sort(
-  (a, b) => b.data.date.getTime() - a.data.date.getTime()
-);
+const posts = await getCollection('post');
+const sorted = posts.sort((a, b) => {
+  if (a.data.featured && !b.data.featured) return -1;
+  if (!a.data.featured && b.data.featured) return 1;
+  return b.data.date.getTime() - a.data.date.getTime();
+});
 ---
 
 <Layout title="Blog">
@@ -26,14 +29,14 @@ const posts = (await getCollection('blog')).sort(
   </section>
 
   <section class="max-w-6xl mx-auto px-4 sm:px-6 pb-24">
-    {posts.length === 0 ? (
+    {sorted.length === 0 ? (
       <div class="text-center py-24">
         <p class="text-text-muted text-lg">Pronto habrá artículos aquí.</p>
         <p class="text-text-muted text-sm mt-2">Vuelve en unos días.</p>
       </div>
     ) : (
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {posts.map(post => <PostCard post={post} />)}
+        {sorted.map(post => <PostCard post={post} />)}
       </div>
     )}
   </section>
