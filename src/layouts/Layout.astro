@@ -24,7 +24,8 @@ const {
   articleAuthor,
 } = Astro.props;
 
-const siteUrl      = 'https://blog.luminaw.co';
+const siteUrl       = 'https://blog.luminaw.co';
+const twitterHandle = '';
 const fullTitle    = title === 'Blog' ? 'Blog | Lúmina W' : `${title} · Lúmina W Blog`;
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl).toString();
 const ogImageUrl   = ogImage
@@ -86,6 +87,8 @@ const organizationSchema = {
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
     {ogImageUrl && <meta name="twitter:image" content={ogImageUrl} />}
+    {twitterHandle && <meta name="twitter:site" content={twitterHandle} />}
+    {twitterHandle && articleAuthor && <meta name="twitter:creator" content={twitterHandle} />}
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -122,5 +125,16 @@ const organizationSchema = {
       import '@/scripts/cursor.ts';
     </script>
     <script defer src="https://cloud.umami.is/script.js" data-website-id="c0a241e0-6d8f-4549-94c6-0e9da62df52b"></script>
+    <script is:inline>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on('init', function(user) {
+          if (!user) {
+            window.netlifyIdentity.on('login', function() {
+              document.location.href = '/admin/';
+            });
+          }
+        });
+      }
+    </script>
   </body>
 </html>

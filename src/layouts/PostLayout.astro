@@ -12,6 +12,15 @@ interface Props {
 const { post } = Astro.props;
 const { title, date, description, category, cover, readTime } = post.data;
 
+const categoryKeywords: Record<string, string[]> = {
+  'Seguridad':              ['ciberseguridad', 'pentesting', 'seguridad informática'],
+  'Desarrollo de software': ['programación', 'backend', 'arquitectura de software'],
+  'SaaS y producto':        ['SaaS', 'producto digital', 'startups'],
+  'Casos de estudio':       ['caso de estudio', 'proyecto real', 'cliente'],
+  'Bienvenida':             ['Lúmina W', 'blog tecnología'],
+};
+const extraKeywords = categoryKeywords[category] ?? [];
+
 const siteUrl = 'https://blog.luminaw.co';
 const canonicalUrl = new URL(`/${post.slug}`, siteUrl).toString();
 
@@ -45,7 +54,7 @@ const articleSchema = {
   description={description}
   ogImage={cover}
   ogType="article"
-  keywords={[category, 'ciberseguridad', 'pentesting', 'Lúmina W Blog']}
+  keywords={[category, ...extraKeywords, 'Lúmina W Blog']}
   articleDate={date}
   articleAuthor="Valentina Ramírez"
 >

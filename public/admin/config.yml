@@ -11,7 +11,7 @@ collections:
   - name: blog
     label: Artículos del Blog
     label_singular: Artículo
-    folder: src/content/blog
+    folder: src/content/post
     create: true
     slug: "{{slug}}"
     fields:
@@ -35,6 +35,7 @@ collections:
         name: category
         widget: select
         options:
+          - { label: "Bienvenida",             value: "Bienvenida" }
           - { label: "Desarrollo de software", value: "Desarrollo de software" }
           - { label: "SaaS y producto",        value: "SaaS y producto" }
           - { label: "Seguridad",              value: "Seguridad" }
@@ -51,6 +52,12 @@ collections:
         widget: string
         hint: "Ej: 5 min"
         default: "5 min"
+
+      - label: Destacado
+        name: featured
+        widget: boolean
+        default: false
+        hint: "Los artículos destacados aparecen primero en el blog"
 
       - label: Contenido
         name: body

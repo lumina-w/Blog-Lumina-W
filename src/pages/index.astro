@@ -11,7 +11,12 @@ const sorted = posts.sort((a, b) => {
 });
 ---
 
-<Layout title="Blog">
+<Layout
+  title="Blog"
+  description="Ideas sobre desarrollo de software, SaaS, seguridad y producto. Por el equipo de Lúmina W. Escribimos sobre lo que construimos, lo que rompemos y lo que descubrimos."
+  ogImage="/brand/logo.webp"
+>
+  <script slot="head" src="https://identity.netlify.com/v1/netlify-identity-widget.js" is:inline></script>
   <main id="main-content">
   <section class="max-w-6xl mx-auto px-4 sm:px-6 pt-16 pb-12">
     <p class="text-sm font-semibold uppercase tracking-widest text-brand mb-3">Lúmina W</p>
