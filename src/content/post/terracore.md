@@ -103,7 +103,9 @@ dar control.
 Control sobre lo que está pasando hoy.  
 Y claridad sobre lo que debería pasar mañana.
 
-![App TerraCore](/videos/terracore/terracore.mp4)
+<video controls autoplay muted loop playsinline style="width:100%; border-radius:12px;">
+  <source src="/videos/terracore/terracore.mp4" type="video/mp4" />
+</video>
 
 ---
 
