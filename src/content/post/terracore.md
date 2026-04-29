@@ -3,23 +3,19 @@ title: "TerraCore: Cómo se vuelve visible lo que antes nadie medía."
 date: 2026-04-29
 description: "Caso real de TerraCore: sistema de trazabilidad de residuos orgánicos con dashboards, registro simple y métricas accionables."
 category: "SaaS y producto"
-cover: "/images/banners/terracore.webp"
+cover: "/images/banners/terracore.png"
 readTime: "15 min"
 ---
 
 No empezó como software.
 
-Empezó con una realidad incómoda dentro del sector agropecuario:
+Empezó con una realidad incómoda dentro del sector agropecuario: la información existe, pero está dispersa, incompleta o simplemente no se usa.
 
-la información existe, pero está dispersa, incompleta o simplemente no se usa.
+- Registros en cuadernos.  
+- Decisiones basadas en memoria.  
+- Procesos que dependen de la experiencia, pero no de datos.
 
-Registros en cuadernos.  
-Decisiones basadas en memoria.  
-Procesos que dependen de la experiencia, pero no de datos.
-
-Y cuando se quiere escalar, optimizar o demostrar resultados, aparece el problema:
-
-no hay claridad.
+Y cuando se quiere escalar, optimizar o demostrar resultados, aparece el problema: _no hay claridad._
 
 ---
 
@@ -38,11 +34,7 @@ Permite gestionar:
 - producción  
 - salud animal  
 
-Todo conectado.
-
-Todo trazable.
-
-Todo medible.
+Todo conectado. Todo trazable. Todo medible.
 
 ---
 
@@ -64,7 +56,7 @@ Un insumo no es solo un gasto.
 
 Es impacto directo en el resultado.
 
-![Módulo de insumos](/images/terracore/insumos.webp)
+![Módulo de insumos](/images/terracore/insumos.png)
 
 ---
 
@@ -72,7 +64,7 @@ Las herramientas dejan de ser activos olvidados.
 
 Se convierten en recursos gestionados.
 
-![Módulo de herramientas](/images/terracore/herramientas.webp)
+![Módulo de herramientas](/images/terracore/herramientas.png)
 
 ---
 
@@ -80,7 +72,7 @@ La producción deja de ser una estimación.
 
 Se convierte en un flujo medible.
 
-![Módulo de producción](/images/terracore/produccion.webp)
+![Módulo de producción](/images/terracore/produccion.png)
 
 ---
 
@@ -88,9 +80,9 @@ La salud animal deja de ser reactiva.
 
 Se convierte en seguimiento constante.
 
-![Módulo de salud animal](/images/terracore/salud-animal-1.webp)
-![Módulo de salud animal](/images/terracore/salud-animal-2.webp)
-![Módulo de salud animal](/images/terracore/salud-animal-3.webp)
+![Módulo de salud animal](/images/terracore/salud-animal-1.png)
+![Módulo de salud animal](/images/terracore/salud-animal-2.png)
+![Módulo de salud animal](/images/terracore/salud-animal-3.png)
 
 ---
 
@@ -147,8 +139,8 @@ Convierte la operación en un sistema visible, medible y optimizable.
 
 Esa visibilidad se traduce en decisiones reales.
 
-![Dashboard TerraCore](/images/terracore/dashboard-1.webp)
-![Dashboard TerraCore](/images/terracore/dashboard-2.webp)
+![Dashboard TerraCore](/images/terracore/dashboard-1.png)
+![Dashboard TerraCore](/images/terracore/dashboard-2.png)
 
 ---
 
