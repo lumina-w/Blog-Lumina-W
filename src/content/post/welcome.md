@@ -51,4 +51,4 @@ El primer artículo ya está publicado, y es sobre algo que nos dejó pensando v
 
 Comprometimos un servidor completo, desde cero, sin credenciales previas, usando solo un comentario que alguien dejó en el código fuente. Todo el proceso está documentado paso a paso en el writeup del laboratorio **Forgotten_Portal** de DockerLabs.
 
-[Leer el primer post](forgotten-portal-pentesting-dockerlabs)
+[Leer el primer post](/forgotten-portal-pentesting-dockerlabs)
