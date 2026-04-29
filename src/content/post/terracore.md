@@ -3,7 +3,7 @@ title: "TerraCore: Cómo se vuelve visible lo que antes nadie medía."
 date: 2026-04-29
 description: "Caso real de TerraCore: sistema de trazabilidad de residuos orgánicos con dashboards, registro simple y métricas accionables."
 category: "SaaS y producto"
-cover: "/images/banners/terracore.png"
+cover: "/images/banners/terracore.webp"
 readTime: "15 min"
 ---
 
@@ -48,7 +48,7 @@ Un animal ya no es solo un registro.
 
 Es historial, es salud, es productividad, es costo, es decisión.
 
-![Módulo de animales](/images/terracore/animales.webp)
+![Módulo de animales](/images/terracore/animales.png)
 
 ---
 
