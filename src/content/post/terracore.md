@@ -103,7 +103,7 @@ dar control.
 Control sobre lo que está pasando hoy.  
 Y claridad sobre lo que debería pasar mañana.
 
-![Dashboard TerraCore](/videos/terracore.mp4)
+![App TerraCore](/videos/terracore/terracore.mp4)
 
 ---
 
@@ -152,5 +152,4 @@ Y tomar decisiones con ventaja.
 
 ---
 
-Si quieres ver cómo se vería esto aplicado a tu operación:  
-[hablemos](https://luminaw.co/#contact).
+Si quieres ver cómo se vería esto aplicado a tu operación: [hablemos](https://luminaw.co/#contact).
