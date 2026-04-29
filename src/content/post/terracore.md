@@ -2,7 +2,7 @@
 title: "TerraCore: Cómo se vuelve visible lo que antes nadie medía."
 date: 2026-04-29
 description: "Caso real de TerraCore: sistema de trazabilidad de residuos orgánicos con dashboards, registro simple y métricas accionables."
-category: "Impacto"
+category: "SaaS y producto"
 cover: "/images/banners/terracore-dashboard.webp"
 readTime: "15 min"
 ---
