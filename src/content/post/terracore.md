@@ -24,6 +24,7 @@ Ahí es donde nace TerraCore.
 No como una herramienta más, sino como una forma de ordenar el sistema.
 
 ---
+
 TerraCore es una plataforma que centraliza la operación agroindustrial en un solo lugar.
 
 Permite gestionar:
@@ -34,7 +35,24 @@ Permite gestionar:
 - producción  
 - salud animal  
 
-Todo conectado. Todo trazable. Todo medible.
+Todo conectado.  
+Todo trazable.  
+Todo medible.
+
+---
+
+TerraCore no busca digitalizar por digitalizar.
+
+Busca algo más concreto:
+
+dar control.
+
+Control sobre lo que está pasando hoy.  
+Y claridad sobre lo que debería pasar mañana.
+
+<video controls autoplay muted loop playsinline style="width:100%; border-radius:12px;">
+  <source src="/videos/terracore/terracore.mp4" type="video/mp4" />
+</video>
 
 ---
 
@@ -91,21 +109,6 @@ Lo que antes estaba fragmentado empieza a tener sentido.
 Y ese cambio es clave.
 
 Porque cuando la información está organizada, las decisiones cambian.
-
----
-
-TerraCore no busca digitalizar por digitalizar.
-
-Busca algo más concreto:
-
-dar control.
-
-Control sobre lo que está pasando hoy.  
-Y claridad sobre lo que debería pasar mañana.
-
-<video controls autoplay muted loop playsinline style="width:100%; border-radius:12px;">
-  <source src="/videos/terracore/terracore.mp4" type="video/mp4" />
-</video>
 
 ---
 
