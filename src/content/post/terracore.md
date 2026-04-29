@@ -23,8 +23,6 @@ Y cuando se quiere escalar, optimizar o demostrar resultados, aparece el problem
 
 ---
 
-## La propuesta de valor
-
 **TerraCore** convierte una operación fragmentada en un sistema centralizado.
 
 Una sola plataforma donde todo ocurre:
@@ -113,8 +111,6 @@ Se convierte en seguimiento constante.
 
 ---
 
-## Lo que cambia
-
 Cuando toda la información está conectada:
 
 - Dejas de operar por intuición.  
@@ -137,8 +133,6 @@ Está en poder responder preguntas como:
 **Sin suposiciones.  Sin intuición ciega.**
 
 ---
-
-## De operación reactiva a estratégica
 
 Cuando hay visibilidad:
 
@@ -165,8 +159,6 @@ Por falta de control.
 ![Dashboard TerraCore](/images/terracore/dashboard-2.png)
 
 ---
-
-## Cierre
 
 No se trata de tener más datos.
 
